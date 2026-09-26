@@ -1,0 +1,36 @@
+{
+  "packet": "P-20260926-f0a1",
+  "claim_type": "numeric",
+  "skill_version": "0.1.4",
+  "canon_hash": "sha256:be6fe49d291e9ba8070d1ad72d1086e7c6cbc281123f773b05ee5eb486bc06c0",
+  "statement_hash": "sha256:9b9d77cc7cf7dc552755433aa13876cd1fb8bbab424698fa85229afabda19276",
+  "agent_id": "codersareawsome",
+  "family": "A",
+  "model_id": "grok-4.7",
+  "toolchain": {
+    "lean": "",
+    "mathlib": "",
+    "gate_image": "python:3.12-bookworm"
+  },
+  "allowed_files": [
+    "fixtures/f0/llms.txt",
+    "fixtures/f0/page.md",
+    "fixtures/f0/robots.txt",
+    "fixtures/f0/SCAN.json",
+    "packets/P-20260926-f0a1.md",
+    "receipts/P-20260926-f0a1/CERTIFICATE.json",
+    "receipts/P-20260926-f0a1/SUMMARY.md"
+  ],
+  "gate": {
+    "local": "pass",
+    "lake": "replay",
+    "commands": [
+      "ready-gate replay --snapshot fixtures/f0 --expect fixtures/f0/SCAN.json"
+    ]
+  },
+  "proof_kind": "checklist",
+  "proof_object": "P-20260926-f0a1",
+  "summary": "receipts/P-20260926-f0a1/SUMMARY.md",
+  "wall_time_s": 0,
+  "notes": "coverage: pinned-corpus-only"
+}

@@ -1,0 +1,30 @@
+{
+  "origin_id": "P-20260926-f0a1",
+  "world_claim": "scan",
+  "checklist": "L1+L2",
+  "coverage": "pinned-corpus-only",
+  "snapshot_hash": "sha256:6e14b8aec79c73934c64904a6196e00ec2da02dd9a822f6c19d7d3f2270cd675",
+  "result": "pass",
+  "checks": [
+    {
+      "id": "h1",
+      "pass": true
+    },
+    {
+      "id": "summary",
+      "pass": true
+    },
+    {
+      "id": "md_link",
+      "pass": true
+    },
+    {
+      "id": "md_200",
+      "pass": true
+    },
+    {
+      "id": "robots",
+      "pass": true
+    }
+  ]
+}

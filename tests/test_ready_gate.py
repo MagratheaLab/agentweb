@@ -119,6 +119,33 @@ class ChecklistTests(unittest.TestCase):
             self.assertFalse(evaluate(root)["robots"])
 
 
+class PacketReplayTests(unittest.TestCase):
+    def test_f0_packet_replay(self) -> None:
+        import ready_gate.packet_check as packet_check
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            snap = root / "fixtures" / "f0"
+            snap.mkdir(parents=True)
+            for name in ("llms.txt", "page.md", "robots.txt"):
+                (snap / name).write_text((FIX / "f0" / name).read_text(encoding="utf-8"), encoding="utf-8")
+            scan = build_scan(snap, origin_id="P-f0", world_claim="scan")
+            (snap / "SCAN.json").write_text(json.dumps(scan), encoding="utf-8")
+            packets = root / "packets"
+            packets.mkdir()
+            (packets / "P-20260926-f0a1.md").write_text(
+                "---\n"
+                "id: P-20260926-f0a1\n"
+                "world_judge: ready-gate\n"
+                "world_claim: scan\n"
+                "snapshot: fixtures/f0\n"
+                "scan: fixtures/f0/SCAN.json\n"
+                "---\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(packet_check.check_packet(root, "P-20260926-f0a1"), "pass")
+
+
 class DnsTests(unittest.TestCase):
     def test_address_is_not_identity(self) -> None:
         data = load_cache(FIX / "dns" / "unsigned.json")
