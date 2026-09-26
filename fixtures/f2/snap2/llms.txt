@@ -1,0 +1,5 @@
+# Example origin
+
+This snapshot is a pinned corpus page for the ready-gate checklist.
+
+- [Page](page.md)

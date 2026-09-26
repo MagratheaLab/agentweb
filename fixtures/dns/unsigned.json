@@ -1,0 +1,11 @@
+{
+  "dnssec": "unsigned",
+  "soa_serial": 2026092601,
+  "rrsets": {
+    "NS": ["ns2.example.net.", "ns1.example.net."],
+    "CNAME": [],
+    "TXT:_agentweb": ["origin=pinned"],
+    "DS": []
+  },
+  "A": ["203.0.113.5"]
+}
