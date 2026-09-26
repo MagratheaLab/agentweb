@@ -31,3 +31,6 @@ jobs:
         run: |
           pip install -e .
           python -m unittest discover -s tests -t . -v
+      - name: packet replay
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'packet/')
+        run: python -m ready_gate.packet_check "$GITHUB_HEAD_REF"
